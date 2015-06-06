@@ -43,11 +43,7 @@ public class UserLocation implements Serializable {
 
     @Override
     public String toString() {
-        return "UserLocation{" +
-                "locationName='" + locationName + '\'' +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
-                '}';
+        return locationName + "(" + latitude + "," + longitude + ")";
     }
 
     @Override

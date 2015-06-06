@@ -1,7 +1,9 @@
 package com.meety.controllers;
 
 import com.meety.User;
+import com.meety.UserCompared;
 import com.meety.repository.UserRepository;
+import com.meety.service.UserComparator;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,8 +32,26 @@ public class UserAPI {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "")
-    public List<User> submitLocation(@RequestBody User user) {
-        return userRepository.findAll();
+    public List<UserCompared> submitLocation(@RequestBody User currentUser) {
+        List<User> users = userRepository.findAll();
+
+        if (currentUser.getDeviceId() == null) {
+            return null;
+        }
+        User user = userRepository.findByDeviceId(currentUser.getDeviceId());
+
+        user.setLocation(currentUser.getLocation());
+        userRepository.save(user);
+
+        List<UserCompared> userComparedList = new ArrayList<UserCompared>();
+
+        for (User userToCompare : users) {
+            if (!userToCompare.getDeviceId().equals(user.getDeviceId())) {
+                UserComparator userComparator = new UserComparator(user, userToCompare);
+                userComparedList.add(userComparator.compare());
+            }
+        }
+        return userComparedList;
     }
 
 }

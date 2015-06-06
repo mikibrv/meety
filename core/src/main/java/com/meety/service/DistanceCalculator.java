@@ -7,10 +7,12 @@ import com.meety.UserLocation;
  */
 public class DistanceCalculator {
 
+    public static final int ONE_KM = 1000;
+
     public double getDistance(UserLocation userLocation, UserLocation userLocationTwo) {
 
         return distance(userLocation.getLatitude(), userLocation.getLongitude(), userLocationTwo.getLatitude(),
-                userLocationTwo.getLongitude());
+                userLocationTwo.getLongitude()) * 1000;//metrii ba
     }
 
 

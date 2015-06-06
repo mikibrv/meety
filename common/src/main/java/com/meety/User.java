@@ -54,6 +54,7 @@ public class User implements Serializable {
         this.locationsHistory = user.locationsHistory;
         this.educationHistory = user.educationHistory;
         this.jobHistory = user.jobHistory;
+        this.languages = user.languages;
     }
 
     public User addHistoricLocation(UserLocation userLocation) {

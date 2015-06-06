@@ -57,11 +57,6 @@ public class Occupation implements Serializable {
 
     @Override
     public String toString() {
-        return "Occupation{" +
-                "title='" + title + '\'' +
-                ", at='" + at + '\'' +
-                ", yearStarted=" + yearStarted +
-                ", yearFinished=" + yearFinished +
-                '}';
+        return title + " at " + at + " in " + this.yearStarted + " - " + this.yearFinished;
     }
 }

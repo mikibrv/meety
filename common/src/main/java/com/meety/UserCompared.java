@@ -11,6 +11,11 @@ public class UserCompared extends User {
 
     List<String> similarities = new ArrayList<String>();
 
+    private int distance;
+
+
+    private Boolean sameLanguage = Boolean.FALSE;
+
 
     public UserCompared(User user) {
         super(user);
@@ -31,5 +36,21 @@ public class UserCompared extends User {
 
     public int getCountSimilarities() {
         return this.similarities.size();
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    public Boolean isSameLanguage() {
+        return sameLanguage;
+    }
+
+    public void setSameLanguage(Boolean sameLanguage) {
+        this.sameLanguage = sameLanguage;
     }
 }

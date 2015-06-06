@@ -23,7 +23,7 @@ public class MockUserTest {
     public void addMiki() {
         User user = new User();
         user.setName("Miki");
-        user.setDeviceId(getRandomId());
+        user.setDeviceId("device-1");
         user.setPicture("https://scontent-lhr3-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/319807_403835986311826_1699578907_n.jpg?oh=6a816b23ce29a1649b327188bf5066bd&oe=55E958FF");
         user.addJob(new Occupation().setAt("PentalogRomania")
                 .setTitle("Java Developer")
@@ -64,7 +64,7 @@ public class MockUserTest {
     public void addAlex() {
         User user = new User();
         user.setName("Alex");
-        user.setDeviceId(getRandomId());
+        user.setDeviceId("device-2");
         user.setPicture("https://scontent-fra3-1.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/11168122_822100267874024_1600658966847055389_n.jpg?oh=cb5912b6769784dcbbe7a5a297d53723&oe=5600339F");
         user.addJob(new Occupation().setAt("Pentalog Romania")
                 .setTitle("Javascript Developer")
@@ -103,7 +103,4 @@ public class MockUserTest {
     }
 
 
-    private String getRandomId() {
-        return UUID.randomUUID().toString();
-    }
 }
