@@ -1,7 +1,6 @@
 package com.meety.controllers;
 
 import com.meety.User;
-import com.meety.UserLocation;
 import com.meety.repository.UserRepository;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,7 +30,7 @@ public class UserAPI {
 
     @RequestMapping(method = RequestMethod.POST, value = "")
     public List<User> submitLocation(@RequestBody User user) {
-        return null;
+        return userRepository.findAll();
     }
 
 }
