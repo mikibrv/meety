@@ -22,6 +22,8 @@ public class User implements Serializable {
 
     private String picture;
 
+    private List<String> languages = new ArrayList<String>();
+
     private List<String> interests = new ArrayList<String>();
 
     private UserLocation location;
@@ -36,6 +38,22 @@ public class User implements Serializable {
 
     public String getId() {
         return id;
+    }
+
+    public User() {
+    }
+
+    public User(User user) {
+        this.id = user.id;
+        this.deviceId = user.deviceId;
+        this.name = user.name;
+        this.picture = user.picture;
+        this.interests = user.interests;
+        this.location = user.location;
+        this.homeTown = user.homeTown;
+        this.locationsHistory = user.locationsHistory;
+        this.educationHistory = user.educationHistory;
+        this.jobHistory = user.jobHistory;
     }
 
     public User addHistoricLocation(UserLocation userLocation) {
@@ -140,6 +158,20 @@ public class User implements Serializable {
         return this;
     }
 
+    public List<String> getLanguages() {
+        return languages;
+    }
+
+    public User setLanguages(List<String> languages) {
+        this.languages = languages;
+        return this;
+    }
+
+    public User addLanguage(String language) {
+        languages.add(language);
+        return this;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -147,6 +179,7 @@ public class User implements Serializable {
                 ", deviceId='" + deviceId + '\'' +
                 ", name='" + name + '\'' +
                 ", picture='" + picture + '\'' +
+                ", languages=" + languages +
                 ", interests=" + interests +
                 ", location=" + location +
                 ", homeTown=" + homeTown +
